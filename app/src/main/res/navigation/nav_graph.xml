@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.itunesmvp.FirstFragment"
+        android:name="com.example.itunesmvp.ui.albumdetails.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.itunesmvp.SecondFragment"
+        android:name="com.example.itunesmvp.ui.search.SearchAlbumFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
