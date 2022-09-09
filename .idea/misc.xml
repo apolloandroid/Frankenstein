@@ -4,10 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/drawable-v24/edit_search_background.xml" value="0.1" />
+        <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/drawable/edit_search_background.xml" value="0.1725" />
+        <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/drawable/ic_edit_search.xml" value="0.1725" />
+        <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1725" />
+        <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/drawable/progress_bar_loading.xml" value="0.1725" />
         <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/layout/albums_list_item.xml" value="0.1" />
         <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/layout/content_main.xml" value="0.2682051282051282" />
         <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/layout/fragment_search_albums.xml" value="0.2734375" />
         <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/layout/fragment_second.xml" value="0.2682051282051282" />
         <entry key="..\:/Users/yu.khmelevskikh/AndroidStudioProjects/iTunesMVP/app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>

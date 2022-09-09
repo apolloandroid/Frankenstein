@@ -5,21 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.example.itunesmvp.R
-import com.example.itunesmvp.databinding.FragmentFirstBinding
-import com.example.itunesmvp.databinding.FragmentSecondBinding
+import com.example.itunesmvp.databinding.FragmentSearchAlbumsBinding
 
-class SearchAlbumFragment : Fragment() {
+interface SearchAlbumView
 
-    private lateinit var binding: FragmentSecondBinding
+class SearchAlbumFragment : Fragment(), SearchAlbumView {
+
+    private lateinit var binding: FragmentSearchAlbumsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSecondBinding.inflate(inflater, container, false)
+        binding = FragmentSearchAlbumsBinding.inflate(inflater, container, false)
         return binding.root
     }
 }
