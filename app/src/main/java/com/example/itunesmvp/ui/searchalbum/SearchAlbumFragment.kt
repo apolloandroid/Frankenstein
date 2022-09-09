@@ -1,4 +1,4 @@
-package com.example.itunesmvp.ui.search
+package com.example.itunesmvp.ui.searchalbum
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

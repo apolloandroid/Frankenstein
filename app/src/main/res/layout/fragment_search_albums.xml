@@ -9,7 +9,7 @@
         android:background="@android:color/white"
         android:clickable="true"
         android:focusable="true"
-        tools:context=".ui.search.SearchFragment">
+        tools:context=".ui.searchalbum.SearchFragment">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edit_search"
