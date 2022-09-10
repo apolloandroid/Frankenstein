@@ -49,6 +49,13 @@ dependencies {
     //  DI
     implementation "io.insert-koin:koin-android:3.2.0"
 
+    // Moxy
+    def moxy_version = "2.2.2"
+    implementation "com.github.moxy-community:moxy:$moxy_version"
+    kapt "com.github.moxy-community:moxy-compiler:$moxy_version"
+    implementation "com.github.moxy-community:moxy-android:$moxy_version"
+    implementation "com.github.moxy-community:moxy-androidx:$moxy_version"
+
     //  Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'

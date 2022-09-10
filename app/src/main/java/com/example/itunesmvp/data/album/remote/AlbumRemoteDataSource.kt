@@ -5,5 +5,5 @@ import io.reactivex.rxjava3.core.Single
 
 class AlbumRemoteDataSource(private val api: AlbumApi) {
 
-    suspend fun getAlbumsByName(name: String): Single<List<Album>> = api.getAlbumsByName(name)
+    fun getAlbumsByName(name: String): Single<List<Album>> = api.getAlbumsByName(name)
 }
