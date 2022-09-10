@@ -11,9 +11,18 @@ class MainActivity : MvpAppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private val navigatorHolder: NavigatorHolder by inject()
+
+    private val navigator = AppNavigator(this, binding.fragmentContainer.id)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        navigatorHolder.setNavigator(navigator)
     }
 }
