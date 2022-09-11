@@ -47,13 +47,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_search_results"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@android:color/white"
+            android:background="@color/white"
             android:elevation="4dp"
             android:orientation="vertical"
             android:overScrollMode="never"
@@ -63,7 +63,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_search" />
+            app:layout_constraintTop_toBottomOf="@id/edit_search"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/text_no_search_history"

@@ -1,5 +1,10 @@
 package com.example.itunesmvp.navigation
 
-//object SearchAlbumsScreen : SupportAppScreen() {
-//
-//}
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
+import com.example.itunesmvp.ui.searchalbum.SearchAlbumFragment
+import com.github.terrakok.cicerone.androidx.FragmentScreen
+
+object SearchAlbumScreen : FragmentScreen {
+    override fun createFragment(factory: FragmentFactory): Fragment = SearchAlbumFragment()
+}

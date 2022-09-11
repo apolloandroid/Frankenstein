@@ -1,6 +1,7 @@
 package com.example.itunesmvp
 
 import android.app.Application
+import com.example.itunesmvp.di.navigationModule
 import com.example.itunesmvp.di.networkModule
 import com.example.itunesmvp.di.presenterModule
 import com.example.itunesmvp.di.remoteDataSourceModule
@@ -19,7 +20,8 @@ class ItunesApplication : Application() {
                     presenterModule,
                     repositoryModule,
                     remoteDataSourceModule,
-                    networkModule
+                    networkModule,
+                    navigationModule
                 )
             )
         }

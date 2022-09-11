@@ -1,10 +1,14 @@
 package com.example.itunesmvp.di
 
+import com.example.itunesmvp.ui.MainPresenter
 import com.example.itunesmvp.ui.searchalbum.SearchAlbumPresenter
 import org.koin.dsl.module
 
 val presenterModule = module {
+    factory<MainPresenter> {
+        MainPresenter(router = get())
+    }
     factory<SearchAlbumPresenter> {
-        SearchAlbumPresenter(get())
+        SearchAlbumPresenter(albumRepository = get())
     }
 }
