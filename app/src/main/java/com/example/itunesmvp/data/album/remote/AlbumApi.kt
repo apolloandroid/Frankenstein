@@ -1,6 +1,5 @@
 package com.example.itunesmvp.data.album.remote
 
-import com.example.itunesmvp.domain.Album
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -19,5 +18,5 @@ interface AlbumApi {
         @Query("country") country: String = DEFAULT_COUNTRY_CODE,
         @Query("media") contentType: String = DEFAULT_CONTENT_TYPE,
         @Query("entity") entityType: String = DEFAULT_ENTITY_TYPE
-    ): Single<List<Album>>
+    ): Single<GetAlbumsResponse>
 }

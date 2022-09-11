@@ -6,6 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:background="@android:color/white"
         android:clickable="true"
         android:focusable="true"
@@ -17,8 +18,8 @@
             android:layout_height="60dp"
             android:layout_margin="16dp"
             android:background="@drawable/edit_search_background"
+            android:drawableStart="@drawable/ic_edit_search"
             android:drawableEnd="@drawable/ic_edit_search"
-            android:drawableRight="@drawable/ic_edit_search"
             android:elevation="4dp"
             android:hint="@string/search_query_hint"
             android:maxLines="1"
@@ -33,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ProgressBar
-            android:id="@+id/progress_loading_tracks"
+            android:id="@+id/progress_load_albums"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:elevation="6dp"
@@ -46,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_search_results"
+            android:id="@+id/recycler_search_results"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
@@ -81,7 +82,7 @@
             app:layout_constraintTop_toBottomOf="@id/edit_search" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_search_history"
+            android:id="@+id/recycler_search_history"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"

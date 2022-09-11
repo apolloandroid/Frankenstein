@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import com.example.itunesmvp.databinding.FragmentSearchAlbumsBinding
 import com.example.itunesmvp.domain.Album
+import com.example.itunesmvp.ui.adapters.SearchAlbumsAdapter
 import moxy.MvpAppCompatFragment
 import moxy.MvpView
 import moxy.presenter.InjectPresenter
@@ -16,12 +19,15 @@ import org.koin.android.ext.android.inject
 
 @StateStrategyType(AddToEndStrategy::class)
 interface SearchAlbumView : MvpView {
-    fun showAlbums(albums: List<Album>)
+    fun setProgressBarVisibility(isVisible: Boolean)
+    fun updateAlbumsList(albums: List<Album>)
+    fun setAlbumsRecyclerVisibility(isVisible: Boolean)
 }
 
 class SearchAlbumFragment : MvpAppCompatFragment(), SearchAlbumView {
 
     private lateinit var binding: FragmentSearchAlbumsBinding
+    private lateinit var adapter: SearchAlbumsAdapter
 
     @InjectPresenter
     lateinit var presenter: SearchAlbumPresenter
@@ -35,13 +41,36 @@ class SearchAlbumFragment : MvpAppCompatFragment(), SearchAlbumView {
         return binding.root
     }
 
-    override fun showAlbums(albums: List<Album>) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpSearchEditText()
+        setUpAlbumsRecyclerView()
+    }
 
+    override fun setProgressBarVisibility(isVisible: Boolean) {
+        binding.progressLoadAlbums.isVisible = isVisible
+    }
+
+    override fun updateAlbumsList(albums: List<Album>) {
+        adapter.submitList(albums)
+    }
+
+    override fun setAlbumsRecyclerVisibility(isVisible: Boolean) {
+        binding.recyclerSearchResults.isVisible = isVisible
     }
 
     @ProvidePresenter
     fun providePresenter(): SearchAlbumPresenter {
         val presenter: SearchAlbumPresenter by inject()
         return presenter
+    }
+
+    private fun setUpSearchEditText() {
+        binding.editSearch.doAfterTextChanged { presenter.onSearchQueryChanged(it.toString()) }
+    }
+
+    private fun setUpAlbumsRecyclerView() {
+        adapter = SearchAlbumsAdapter()
+        binding.recyclerSearchResults.adapter = adapter
     }
 }
