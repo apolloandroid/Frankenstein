@@ -5,6 +5,9 @@ import io.reactivex.rxjava3.core.Single
 
 class AlbumRemoteDataSource(private val api: AlbumApi) {
 
-    fun getAlbumsByName(name: String): Single<List<Album>> =
-        api.getAlbumsByName(name).map { it.results }
+    fun getAlbumsByName(name: String): Single<List<Album>> {
+        return api.getAlbumsByName(name).map { response ->
+            response.results.map { dto -> dto.mapToDomain() }
+        }
+    }
 }

@@ -18,9 +18,9 @@ class SearchAlbumPresenter(
     private val compositeDisposable = CompositeDisposable()
     private lateinit var getAlbumsByName: Disposable
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun destroyView(view: SearchAlbumView?) {
         compositeDisposable.clear()
+        super.destroyView(view)
     }
 
     fun onSearchQueryChanged(albumName: String) {
