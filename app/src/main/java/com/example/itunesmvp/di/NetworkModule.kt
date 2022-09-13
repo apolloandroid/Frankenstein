@@ -24,7 +24,6 @@ val networkModule = module {
     }
     single<Converter.Factory> { GsonConverterFactory.create(get()) }
     single<CallAdapter.Factory> { RxJava3CallAdapterFactory.create() }
-
     single<Retrofit> {
         Retrofit.Builder()
             .baseUrl(baseUrl)

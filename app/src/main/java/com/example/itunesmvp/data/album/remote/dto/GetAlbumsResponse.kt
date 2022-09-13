@@ -1,6 +1,5 @@
-package com.example.itunesmvp.data.album.remote
+package com.example.itunesmvp.data.album.remote.dto
 
-import com.example.itunesmvp.data.album.remote.dto.AlbumDto
 import com.google.gson.annotations.SerializedName
 
 data class GetAlbumsResponse(

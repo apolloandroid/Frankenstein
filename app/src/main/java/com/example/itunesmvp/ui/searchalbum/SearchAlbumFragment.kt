@@ -51,9 +51,7 @@ class SearchAlbumFragment : MvpAppCompatFragment(), SearchAlbumView {
         binding.progressLoadAlbums.isVisible = isVisible
     }
 
-    override fun updateAlbumsList(albums: List<Album>) {
-        adapter.submitList(albums)
-    }
+    override fun updateAlbumsList(albums: List<Album>) = adapter.submitList(albums)
 
     override fun setAlbumsRecyclerVisibility(isVisible: Boolean) {
         binding.recyclerSearchResults.isVisible = isVisible

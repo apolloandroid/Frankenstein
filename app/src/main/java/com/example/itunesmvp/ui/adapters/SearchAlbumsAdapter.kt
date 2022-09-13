@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.itunesmvp.R
 import com.example.itunesmvp.databinding.ItemAlbumSearchAlbumsBinding
 import com.example.itunesmvp.domain.Album
 
@@ -25,8 +27,14 @@ class SearchAlbumsAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(album: Album) {
-            binding.textAlbumName.text = album.name
-            binding.textArtistName.text = album.artistName
+            binding.apply {
+                textAlbumName.text = album.name
+                textArtistName.text = album.artistName
+                Glide.with(root.context)
+                    .load(album.coverUrl)
+                    .placeholder(R.drawable.progress_bar_loading)
+                    .into(imageAlbumCover)
+            }
         }
     }
 

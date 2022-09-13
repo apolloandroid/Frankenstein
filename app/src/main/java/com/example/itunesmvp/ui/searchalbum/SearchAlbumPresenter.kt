@@ -29,7 +29,7 @@ class SearchAlbumPresenter(
             compositeDisposable.delete(getAlbumsByName)
             getAlbumsByName.dispose()
         }
-        getAlbumsByName = albumRepository.getAlbumsByName(albumName)
+        getAlbumsByName = albumRepository.getAlbumsByKeyWord(albumName)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy { albums ->
