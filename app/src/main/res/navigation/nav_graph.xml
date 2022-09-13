@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.itunesmvp.ui.albumdetails.FirstFragment"
-        tools:layout="@layout/fragment_first">
+        android:name="com.example.itunesmvp.ui.albumdetails.AlbumDetailsFragment"
+        tools:layout="@layout/fragment_album_details">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

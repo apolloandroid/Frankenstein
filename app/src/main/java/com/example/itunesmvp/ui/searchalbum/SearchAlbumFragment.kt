@@ -14,12 +14,14 @@ import moxy.MvpView
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import moxy.viewstate.strategy.AddToEndStrategy
+import moxy.viewstate.strategy.SkipStrategy
 import moxy.viewstate.strategy.StateStrategyType
 import org.koin.android.ext.android.inject
 
 @StateStrategyType(AddToEndStrategy::class)
 interface SearchAlbumView : MvpView {
     fun setProgressBarVisibility(isVisible: Boolean)
+    @StateStrategyType(SkipStrategy::class)
     fun updateAlbumsList(albums: List<Album>)
     fun setAlbumsRecyclerVisibility(isVisible: Boolean)
 }
@@ -68,7 +70,7 @@ class SearchAlbumFragment : MvpAppCompatFragment(), SearchAlbumView {
     }
 
     private fun setUpAlbumsRecyclerView() {
-        adapter = SearchAlbumsAdapter()
+        adapter = SearchAlbumsAdapter(presenter::onAlbumClicked)
         binding.recyclerSearchResults.adapter = adapter
     }
 }

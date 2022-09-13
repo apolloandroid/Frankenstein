@@ -10,24 +10,29 @@ import com.example.itunesmvp.R
 import com.example.itunesmvp.databinding.ItemAlbumSearchAlbumsBinding
 import com.example.itunesmvp.domain.Album
 
-class SearchAlbumsAdapter :
-    ListAdapter<Album, SearchAlbumsAdapter.AlbumViewHolder>(AlbumsDiffCallBack()) {
+class SearchAlbumsAdapter(
+    private val onAlbumClick: (album: Album) -> Unit
+) : ListAdapter<Album, SearchAlbumsAdapter.AlbumViewHolder>(AlbumsDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemAlbumSearchAlbumsBinding.inflate(layoutInflater, parent, false)
-        return AlbumViewHolder(binding)
+        return AlbumViewHolder(binding, onAlbumClick)
     }
 
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class AlbumViewHolder(private val binding: ItemAlbumSearchAlbumsBinding) :
+    class AlbumViewHolder(
+        private val binding: ItemAlbumSearchAlbumsBinding,
+        private val onAlbumClick: (album: Album) -> Unit
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(album: Album) {
             binding.apply {
+                root.setOnClickListener { onAlbumClick(album) }
                 textAlbumName.text = album.name
                 textArtistName.text = album.artistName
                 Glide.with(root.context)
