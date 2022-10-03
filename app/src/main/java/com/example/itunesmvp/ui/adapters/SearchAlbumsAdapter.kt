@@ -45,7 +45,7 @@ class SearchAlbumsAdapter(
 
     private class AlbumsDiffCallBack : DiffUtil.ItemCallback<Album>() {
         override fun areItemsTheSame(oldItem: Album, newItem: Album): Boolean =
-            oldItem.id == newItem.id
+            oldItem.name == newItem.name
 
         override fun areContentsTheSame(oldItem: Album, newItem: Album): Boolean =
             oldItem.name == newItem.name

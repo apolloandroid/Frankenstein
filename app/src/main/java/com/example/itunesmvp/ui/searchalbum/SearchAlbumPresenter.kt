@@ -6,12 +6,12 @@ import com.example.itunesmvp.navigation.AlbumDetailsScreen
 import com.github.terrakok.cicerone.Router
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import moxy.InjectViewState
 import moxy.MvpPresenter
+import java.util.concurrent.TimeUnit
 
 @InjectViewState
 class SearchAlbumPresenter(
@@ -20,7 +20,6 @@ class SearchAlbumPresenter(
 ) : MvpPresenter<SearchAlbumView>() {
 
     private val compositeDisposable = CompositeDisposable()
-    private lateinit var getAlbumsByName: Disposable
 
     override fun destroyView(view: SearchAlbumView?) {
         compositeDisposable.clear()
@@ -29,11 +28,9 @@ class SearchAlbumPresenter(
 
     fun onSearchQueryChanged(albumName: String) {
         viewState.setProgressBarVisibility(true)
-        if (::getAlbumsByName.isInitialized) {
-            compositeDisposable.delete(getAlbumsByName)
-            getAlbumsByName.dispose()
-        }
-        getAlbumsByName = albumRepository.getAlbumsByKeyWord(albumName)
+        albumRepository.getAlbumsByKeyWord(albumName)
+            .debounce(300, TimeUnit.MILLISECONDS)
+            .distinctUntilChanged()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy { albums ->
@@ -44,5 +41,7 @@ class SearchAlbumPresenter(
             .addTo(compositeDisposable)
     }
 
-    fun onAlbumClicked(album: Album) = router.navigateTo(AlbumDetailsScreen)
+    fun onAlbumClicked(album: Album) {
+        router.navigateTo(AlbumDetailsScreen)
+    }
 }
