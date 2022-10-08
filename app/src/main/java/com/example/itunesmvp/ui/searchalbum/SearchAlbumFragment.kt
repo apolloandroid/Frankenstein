@@ -1,10 +1,15 @@
 package com.example.itunesmvp.ui.searchalbum
 
+import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import com.example.itunesmvp.databinding.FragmentSearchAlbumsBinding
 import com.example.itunesmvp.domain.Album
@@ -37,19 +42,66 @@ class SearchAlbumFragment : MvpAppCompatFragment(), SearchAlbumView {
     @InjectPresenter
     lateinit var presenter: SearchAlbumPresenter
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d("TAG", "onAttach")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("TAG", "onCreate")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.d("TAG", "onCreateView")
         binding = FragmentSearchAlbumsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("TAG", "onViewCreated")
         setUpSearchEditText()
         setUpAlbumsRecyclerView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("TAG", "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("TAG", "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("TAG", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("TAG", "onStop")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("TAG", "onDestroyView")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("TAG", "onDestroy")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("TAG", "onDetach")
     }
 
     override fun setProgressBarVisibility(isVisible: Boolean) {
@@ -68,8 +120,22 @@ class SearchAlbumFragment : MvpAppCompatFragment(), SearchAlbumView {
         return presenter
     }
 
-    private fun setUpSearchEditText() = binding.editSearch.doAfterTextChanged {
-        presenter.onSearchQueryChanged(it.toString())
+    private fun setUpSearchEditText() {
+//        binding.editSearch.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun afterTextChanged(p0: Editable?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
+        binding.editSearch.doAfterTextChanged { presenter.onSearchQueryChanged(it.toString()) }
     }
 
     private fun setUpAlbumsRecyclerView() {

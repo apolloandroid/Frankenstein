@@ -4,10 +4,12 @@ Add animation of fragment transition
 Add connection notification
 Add animation
 Add sounds
-Add push
+Add push notifications
 Add R8
 Add proguard
 Add switching theme
 Add switching language
 Add sorting list
 Add placeholders for albums
+Add kotlinx serialization
+Add Room migrations!!!!!!

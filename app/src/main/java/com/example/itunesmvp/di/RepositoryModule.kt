@@ -6,7 +6,7 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
     single<AlbumRepository> {
-        AlbumRepository(remoteDataSource = get())
+        AlbumRepository(remoteDataSource = get(), localDataSource = get())
     }
 
     single<TrackRepository> {

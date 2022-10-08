@@ -27,8 +27,7 @@ class SearchAlbumsAdapter(
     class AlbumViewHolder(
         private val binding: ItemAlbumSearchAlbumsBinding,
         private val onAlbumClick: (album: Album) -> Unit
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(album: Album) {
             binding.apply {

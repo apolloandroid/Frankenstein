@@ -2,7 +2,6 @@ package com.example.itunesmvp.domain
 
 import java.util.UUID
 
-
 data class Album(
     val id: String = UUID.randomUUID().toString(),
     val collectionId: Int,
