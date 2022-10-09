@@ -9,9 +9,9 @@
         tools:context=".ui.albumdetails.AlbumDetailsFragment">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_album_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Coming soon..."
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

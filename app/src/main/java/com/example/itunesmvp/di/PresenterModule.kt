@@ -12,7 +12,7 @@ val presenterModule = module {
     factory<SearchAlbumPresenter> {
         SearchAlbumPresenter(albumRepository = get(), router = get())
     }
-    factory<AlbumDetailsPresenter> {
-        AlbumDetailsPresenter(albumRepository = get(), trackRepository = get())
+    factory<AlbumDetailsPresenter> { parameters ->
+        AlbumDetailsPresenter(album = parameters[0], trackRepository = get())
     }
 }

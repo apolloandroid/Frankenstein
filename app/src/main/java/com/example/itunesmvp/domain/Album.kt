@@ -1,5 +1,6 @@
 package com.example.itunesmvp.domain
 
+import java.io.Serializable
 import java.util.UUID
 
 data class Album(
@@ -9,4 +10,4 @@ data class Album(
     val trackCount: Int,
     val name: String,
     val coverUrl: String
-)
+) : Serializable

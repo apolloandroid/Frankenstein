@@ -45,7 +45,5 @@ class SearchAlbumPresenter(
             .addTo(compositeDisposable)
     }
 
-    fun onAlbumClicked(album: Album) {
-        router.navigateTo(Screens.albumDetailsFragment())
-    }
+    fun onAlbumClicked(album: Album) = router.navigateTo(Screens.albumDetailsFragment(album))
 }
