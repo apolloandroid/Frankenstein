@@ -2,7 +2,7 @@ package com.example.itunesmvp.ui.searchalbum
 
 import com.example.itunesmvp.data.album.AlbumRepository
 import com.example.itunesmvp.domain.Album
-import com.example.itunesmvp.navigation.AlbumDetailsScreen
+import com.example.itunesmvp.navigation.Screens
 import com.github.terrakok.cicerone.Router
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -46,6 +46,6 @@ class SearchAlbumPresenter(
     }
 
     fun onAlbumClicked(album: Album) {
-        router.navigateTo(AlbumDetailsScreen)
+        router.navigateTo(Screens.albumDetailsFragment())
     }
 }
