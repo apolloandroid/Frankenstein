@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Style of collapsed Toolbar at AlbumDetailsFragment-->
+    <style name="Collapsed">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--    Style of expanded Toolbar at AlbumDetailsFragment-->
+    <style name="Expanded">
+        <item name="android:textSize">28sp</item>
+    </style>
+</resources>

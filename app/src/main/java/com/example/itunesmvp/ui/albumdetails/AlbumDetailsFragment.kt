@@ -4,9 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.itunesmvp.databinding.FragmentAlbumDetailsBinding
 import com.example.itunesmvp.domain.Album
-import kotlinx.android.synthetic.main.fragment_album_details.view.text_album_info
+import com.example.itunesmvp.ui.MainActivity
 import moxy.MvpAppCompatFragment
 import moxy.MvpView
 import moxy.presenter.InjectPresenter
@@ -18,7 +19,8 @@ import org.koin.core.parameter.parametersOf
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface AlbumDetailsView : MvpView {
-    fun setAlbumInformation(album: Album)
+    fun setToolbar(text: String)
+    fun setAlbumCover(coverUrl: String)
 }
 
 class AlbumDetailsFragment : MvpAppCompatFragment(), AlbumDetailsView {
@@ -47,8 +49,15 @@ class AlbumDetailsFragment : MvpAppCompatFragment(), AlbumDetailsView {
         return binding.root
     }
 
-    override fun setAlbumInformation(album: Album) {
-        binding.textAlbumInfo.text = album.toString()
+    override fun setToolbar(text: String) {
+        with(binding.toolbar) {
+            title = text
+            (requireActivity() as? MainActivity)?.setSupportActionBar(this)
+        }
+    }
+
+    override fun setAlbumCover(coverUrl: String) {
+        Glide.with(requireContext()).load(coverUrl).into(binding.imageAlbumCover)
     }
 
     @Suppress("DEPRECATION")

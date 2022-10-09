@@ -13,6 +13,7 @@ class AlbumDetailsPresenter(
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        viewState.setAlbumInformation(album)
+        viewState.setToolbar(album.name)
+        viewState.setAlbumCover(album.coverUrl)
     }
 }
