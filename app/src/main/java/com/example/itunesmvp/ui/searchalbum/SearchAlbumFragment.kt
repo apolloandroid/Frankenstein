@@ -8,19 +8,19 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import com.example.itunesmvp.databinding.FragmentSearchAlbumsBinding
 import com.example.itunesmvp.domain.Album
-import com.example.itunesmvp.ui.adapters.SearchAlbumsAdapter
 import moxy.MvpAppCompatFragment
 import moxy.MvpView
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.OneExecutionStateStrategy
+import moxy.viewstate.strategy.SkipStrategy
 import moxy.viewstate.strategy.StateStrategyType
 import org.koin.android.ext.android.inject
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface SearchAlbumView : MvpView {
-    @StateStrategyType(OneExecutionStateStrategy::class)
+    @StateStrategyType(SkipStrategy::class)
     fun setProgressBarVisibility(isVisible: Boolean)
 
     fun updateAlbumsList(albums: List<Album>)

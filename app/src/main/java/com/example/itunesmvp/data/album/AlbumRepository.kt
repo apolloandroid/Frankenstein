@@ -1,6 +1,5 @@
 package com.example.itunesmvp.data.album
 
-import android.util.Log
 import com.example.itunesmvp.data.album.local.AlbumDao
 import com.example.itunesmvp.data.album.remote.AlbumRemoteDataSource
 import com.example.itunesmvp.domain.Album
@@ -21,8 +20,5 @@ class AlbumRepository(
         return remoteDataSource.getAlbumsByKeyWord(keyWord)
     }
 
-    fun clear() {
-        Log.d("TAG", "repository: clear")
-        localDataSource.clear()
-    }
+    fun clear() = localDataSource.clear()
 }

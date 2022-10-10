@@ -1,4 +1,4 @@
-package com.example.itunesmvp.ui.adapters
+package com.example.itunesmvp.ui.searchalbum
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
