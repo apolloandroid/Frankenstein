@@ -15,6 +15,9 @@ data class TrackDto(
 ) {
 
     companion object {
+        const val TRACK_WRAPPER_TYPE = "track"
+        private const val DEFAULT_NAME = "Unknown"
+
         fun mapFromDomain(track: Track): TrackDto = TrackDto(
             type = track.type,
             name = track.name,
@@ -25,7 +28,7 @@ data class TrackDto(
 
     fun mapToDomain(): Track = Track(
         type = type,
-        name = name,
+        name = name ?: DEFAULT_NAME,
         number = number,
         timeMillis = timeMillis
     )

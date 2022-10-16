@@ -27,7 +27,7 @@ class AlbumDetailsPresenter(
 
     private fun getTracks() {
         viewState.setProgressBarVisibility(true)
-        trackRepository.getTracks(album.collectionId)
+        trackRepository.getAlbumTracks(album.collectionId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy { tracks ->

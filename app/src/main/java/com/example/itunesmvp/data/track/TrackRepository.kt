@@ -6,7 +6,7 @@ import io.reactivex.rxjava3.core.Observable
 
 class TrackRepository(private val remoteDataSource: TrackRemoteDataSource) {
 
-    fun getTracks(albumId: Int): Observable<List<Track>> {
-        return remoteDataSource.getTracksByAlbum(albumId)
+    fun getAlbumTracks(albumId: Int): Observable<List<Track>> {
+        return remoteDataSource.getAlbumTracks(albumId)
     }
 }
