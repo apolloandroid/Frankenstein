@@ -19,7 +19,7 @@ data class TrackDto(
         private const val DEFAULT_NAME = "Unknown"
 
         fun mapFromDomain(track: Track): TrackDto = TrackDto(
-            type = track.type,
+            type = TRACK_WRAPPER_TYPE,
             name = track.name,
             number = track.number,
             timeMillis = track.timeMillis
@@ -27,7 +27,6 @@ data class TrackDto(
     }
 
     fun mapToDomain(): Track = Track(
-        type = type,
         name = name ?: DEFAULT_NAME,
         number = number,
         timeMillis = timeMillis

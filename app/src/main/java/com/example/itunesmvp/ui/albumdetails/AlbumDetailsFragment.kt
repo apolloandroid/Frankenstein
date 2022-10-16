@@ -25,7 +25,7 @@ import org.koin.core.parameter.parametersOf
 interface AlbumDetailsView : MvpView {
     fun setToolbar(text: String)
     fun setAlbumCover(coverUrl: String)
-    fun updateTracksList(tracks: List<Track>)
+    fun updateTracksList(tracks: List<TrackItem>)
 
     @StateStrategyType(SkipStrategy::class)
     fun setProgressBarVisibility(isVisible: Boolean)
@@ -34,6 +34,7 @@ interface AlbumDetailsView : MvpView {
 class AlbumDetailsFragment : MvpAppCompatFragment(), AlbumDetailsView {
 
     private lateinit var binding: FragmentAlbumDetailsBinding
+    private val trackAdapter = TrackAdapter()
 
     @InjectPresenter
     lateinit var presenter: AlbumDetailsPresenter
@@ -57,6 +58,11 @@ class AlbumDetailsFragment : MvpAppCompatFragment(), AlbumDetailsView {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initTracksList()
+    }
+
     override fun setToolbar(text: String) {
         with(binding.toolbar) {
             title = text
@@ -68,10 +74,7 @@ class AlbumDetailsFragment : MvpAppCompatFragment(), AlbumDetailsView {
         Glide.with(requireContext()).load(coverUrl).into(binding.imageAlbumCover)
     }
 
-    override fun updateTracksList(tracks: List<Track>) {
-        //  Implement
-        Log.d("TAG", "tracks: $tracks")
-    }
+    override fun updateTracksList(tracks: List<TrackItem>) = trackAdapter.submitList(tracks)
 
     override fun setProgressBarVisibility(isVisible: Boolean) {
         //  Implement
@@ -84,5 +87,9 @@ class AlbumDetailsFragment : MvpAppCompatFragment(), AlbumDetailsView {
             parametersOf(arguments?.getSerializable(KEY_ALBUM) as Album)
         }
         return presenter
+    }
+
+    private fun initTracksList() {
+        binding.recyclerTracks.adapter = trackAdapter
     }
 }

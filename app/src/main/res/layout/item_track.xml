@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:id="@+id/text_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_name"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/text_duration"
+            app:layout_constraintStart_toEndOf="@id/text_number"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/text_duration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="02:30" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

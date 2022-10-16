@@ -31,7 +31,8 @@ class AlbumDetailsPresenter(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy { tracks ->
-                viewState.updateTracksList(tracks)
+                val items = tracks.map { track -> TrackItem.mapFromDomain(track) }
+                viewState.updateTracksList(items)
                 viewState.setProgressBarVisibility(false)
             }.addTo(compositeDisposable)
     }
