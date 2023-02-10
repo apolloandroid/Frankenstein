@@ -1,5 +1,5 @@
 Add gradle.kts
-Try all Moxy strategies
++ Try all Moxy strategies
 Add animation of fragment transition
 Add connection notification
 Add animation
@@ -15,3 +15,6 @@ Add kotlinx serialization
 Add Room migrations!!!!!!
 Add Tests
 Add Compose
+Add BottomNavigation
+Add OtpView
+Add SPLASH
