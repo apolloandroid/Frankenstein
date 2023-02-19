@@ -10,9 +10,9 @@ import com.example.itunesmvp.R
 import com.example.itunesmvp.databinding.ItemAlbumSearchAlbumsBinding
 import com.example.itunesmvp.domain.Album
 
-class SearchAlbumsAdapter(
+class SearchAlbumAdapter(
     private val onAlbumClick: (album: Album) -> Unit
-) : ListAdapter<Album, SearchAlbumsAdapter.AlbumViewHolder>(AlbumsDiffCallBack()) {
+) : ListAdapter<Album, SearchAlbumAdapter.AlbumViewHolder>(AlbumDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -42,7 +42,7 @@ class SearchAlbumsAdapter(
         }
     }
 
-    private class AlbumsDiffCallBack : DiffUtil.ItemCallback<Album>() {
+    private class AlbumDiffCallBack : DiffUtil.ItemCallback<Album>() {
         override fun areItemsTheSame(oldItem: Album, newItem: Album): Boolean =
             oldItem.name == newItem.name
 

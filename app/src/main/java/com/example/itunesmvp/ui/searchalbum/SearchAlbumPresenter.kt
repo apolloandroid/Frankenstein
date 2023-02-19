@@ -3,6 +3,8 @@ package com.example.itunesmvp.ui.searchalbum
 import com.example.itunesmvp.data.album.AlbumRepository
 import com.example.itunesmvp.domain.Album
 import com.example.itunesmvp.navigation.Screens
+import com.example.itunesmvp.navigation.routers.ILocalRouter
+import com.example.itunesmvp.navigation.routers.SearchAlbumRouter
 import com.github.terrakok.cicerone.Router
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -15,7 +17,7 @@ import java.util.concurrent.TimeUnit
 
 @InjectViewState
 class SearchAlbumPresenter(
-    private val router: Router,
+    private val router: SearchAlbumRouter,
     private val albumRepository: AlbumRepository
 ) : MvpPresenter<SearchAlbumView>() {
 
@@ -45,5 +47,5 @@ class SearchAlbumPresenter(
             .addTo(compositeDisposable)
     }
 
-    fun onAlbumClicked(album: Album) = router.navigateTo(Screens.albumDetailsFragment(album))
+    fun onAlbumClicked(album: Album) = router.routeToAlbumDetails(album)
 }
