@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.example.itunesmvp"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -91,6 +91,9 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.0'
     implementation 'com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    //  Splash
+    implementation "androidx.core:core-splashscreen:1.0.0"
 
     // Swipe Refresh
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"

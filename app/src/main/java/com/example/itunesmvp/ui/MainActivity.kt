@@ -1,6 +1,7 @@
 package com.example.itunesmvp.ui
 
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.example.itunesmvp.R
 import com.example.itunesmvp.databinding.ActivityMainBinding
@@ -20,6 +21,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         get() = supportFragmentManager.fragments.firstOrNull { it.isVisible } as? RootFragment<*>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
