@@ -7,6 +7,7 @@ import com.example.itunesmvp.R
 import com.example.itunesmvp.databinding.ActivityMainBinding
 import com.example.itunesmvp.navigation.NavigationTabTags
 import com.example.itunesmvp.navigation.Screens
+import com.example.itunesmvp.ui.base.BackPressable
 import com.example.itunesmvp.ui.base.RootFragment
 import moxy.MvpAppCompatActivity
 import moxy.MvpView
@@ -26,6 +27,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpBottomNavigation()
+    }
+
+    override fun onBackPressed() {
+        val currentFragmentBackPressedResult = (currentFragment as? BackPressable)?.onBackPressed()
+        when {
+            currentFragmentBackPressedResult == true -> return
+            currentFragment?.tag == NavigationTabTags.TAG_SEARCH_ALBUM -> super.onBackPressed()
+            else -> {
+                selectTab(NavigationTabTags.TAG_SEARCH_ALBUM)
+                binding.navigationView.selectedItemId = R.id.menuItemSearchAlbum
+            }
+        }
     }
 
     private fun setUpBottomNavigation() = binding.navigationView.apply {
@@ -56,6 +69,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     private fun getTabTag(tabId: Int): String? = when (tabId) {
         R.id.menuItemSearchAlbum -> NavigationTabTags.TAG_SEARCH_ALBUM
         R.id.menuItemFavoriteAlbums -> NavigationTabTags.TAG_FAVORITE_ALBUMS
+        R.id.menuItemSettings -> NavigationTabTags.TAG_SETTINGS
         else -> null
     }
 

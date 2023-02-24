@@ -6,4 +6,8 @@
     <item
         android:id="@+id/menuItemFavoriteAlbums"
         android:title="Favorites" />
+
+    <item
+        android:id="@+id/menuItemSettings"
+        android:title="Settings" />
 </menu>

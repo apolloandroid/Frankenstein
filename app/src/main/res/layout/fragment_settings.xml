@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.settings.SettingsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/margin_16dp"
+            android:paddingEnd="@dimen/margin_16dp">
+
+            <TextView
+                android:id="@+id/textLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:text="@string/language"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:divider="?android:attr/dividerHorizontal"
+                android:layoutDirection="rtl"
+                android:showDividers="end|middle"
+                app:layout_constraintTop_toBottomOf="@id/textLanguage">
+
+                <RadioButton
+                    android:id="@+id/radioButtonRussian"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/russian" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonEnglish"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/english" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_36dp"
+                android:text="@string/app_theme"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/radioGroupLanguage" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:divider="?android:attr/dividerHorizontal"
+                android:layoutDirection="rtl"
+                android:showDividers="end|middle"
+                app:layout_constraintTop_toBottomOf="@id/textTheme">
+
+                <RadioButton
+                    android:id="@+id/radioButtonLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/light" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/dark" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonSystem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/system" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textAuthentication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_36dp"
+                android:text="@string/authentication_method"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/radioGroupTheme" />
+
+            <RadioGroup
+                android:id="@+id/layoutAuthentication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:divider="?android:attr/dividerHorizontal"
+                android:showDividers="end|middle"
+                app:layout_constraintTop_toBottomOf="@id/textAuthentication">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchNone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/none" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchPinCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fingerprint" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchFingerPrint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pin_code"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_36dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutAuthentication"
+                tools:text="Версия приложения: 1.0.0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</layout>

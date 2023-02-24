@@ -7,3 +7,4 @@ import org.koin.core.qualifier.named
  */
 val searchAlbumQualifier = named("search_album_qualifier")
 val favoriteAlbumsQualifier = named("favorite_albums_qualifier")
+val settingsQualifier = named("settings_qualifier")
