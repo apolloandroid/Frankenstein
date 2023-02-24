@@ -11,10 +11,7 @@ import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import org.koin.android.ext.android.inject
 
-interface RootFavoriteAlbumsView : MvpView
-
-class RootFavoriteAlbumsFragment : RootFragment<RootFavoriteAlbumsPresenter>(),
-    RootFavoriteAlbumsView {
+class RootFavoriteAlbumsFragment : RootFragment<RootFavoriteAlbumsPresenter>() {
 
     override val fragmentContainerId: Int = R.id.layout_container_favorite_albums
 

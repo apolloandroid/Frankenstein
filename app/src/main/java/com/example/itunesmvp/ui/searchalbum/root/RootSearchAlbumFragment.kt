@@ -11,9 +11,7 @@ import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import org.koin.android.ext.android.inject
 
-interface RootSearchAlbumView : MvpView
-
-class RootSearchAlbumFragment : RootFragment<RootSearchAlbumPresenter>(), RootSearchAlbumView {
+class RootSearchAlbumFragment : RootFragment<RootSearchAlbumPresenter>() {
 
     override val fragmentContainerId: Int = R.id.layout_container_search_album
 

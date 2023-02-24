@@ -66,7 +66,6 @@ class AlbumDetailsFragment : MvpAppCompatFragment(), AlbumDetailsView {
     override fun setToolbar(text: String) {
         with(binding.toolbar) {
             title = text
-            (requireActivity() as? MainActivity)?.setSupportActionBar(this)
         }
     }
 
