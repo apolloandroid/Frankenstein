@@ -1,4 +1,4 @@
-+Add gradle.kts
++ Add gradle.kts
 Add buildSrc
 + Try all Moxy strategies
 Add animation of fragment transition
