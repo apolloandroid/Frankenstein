@@ -1,5 +1,5 @@
 + Add gradle.kts
-Add buildSrc
++ Add buildSrc
 + Try all Moxy strategies
 Add animation of fragment transition
 Add connection notification
