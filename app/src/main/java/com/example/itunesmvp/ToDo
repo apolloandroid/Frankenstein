@@ -1,4 +1,5 @@
-Add gradle.kts
++Add gradle.kts
+Add buildSrc
 + Try all Moxy strategies
 Add animation of fragment transition
 Add connection notification
@@ -20,3 +21,4 @@ Add OtpView
 Add Fingerprint auth
 + Add SPLASH
 Add fullscreen
+Add optimization for code https://developer.android.com/studio/build/shrink-code#enable

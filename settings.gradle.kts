@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "iTunesMVP"
-include ':app'
+include (":app")
