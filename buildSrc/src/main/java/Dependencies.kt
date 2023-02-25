@@ -1,0 +1,35 @@
+object Dependencies {
+    val coreKtx by lazy { "androidx.core:core-ktx:${Versions.coreKtx}" }
+    val appCompat by lazy { "androidx.appcompat:appcompat:${Versions.appCompat}" }
+    val activityKtx by lazy { "androidx.activity:activity-ktx:${Versions.activityKtx}" }
+    val fragmentKtx by lazy { "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}" }
+    val navigationFragmentKtx by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" }
+    val navigationUiKtx by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.navigation}" }
+    val koin by lazy { "io.insert-koin:koin-android:${Versions.koin}" }
+    val glide by lazy { "com.github.bumptech.glide:glide:${Versions.glide}" }
+    val glideCompiler by lazy { "com.github.bumptech.glide:compiler:${Versions.glide}" }
+    val moxy by lazy { "com.github.moxy-community:moxy:${Versions.moxy}" }
+    val moxyCompiler by lazy { "com.github.moxy-community:moxy-compiler:${Versions.moxy}" }
+    val moxyAndroid by lazy { "com.github.moxy-community:moxy-android:${Versions.moxy}" }
+    val moxyAndroidX by lazy { "com.github.moxy-community:moxy-androidx:${Versions.moxy}" }
+    val cicerone by lazy { "com.github.terrakok:cicerone:${Versions.cicerone}" }
+    val okHttpInterceptor by lazy { "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpInterceptor}" }
+    val retrofit by lazy { "com.squareup.retrofit2:retrofit:${Versions.retrofit}" }
+    val retrofitRx by lazy { "com.github.akarnokd:rxjava3-retrofit-adapter:${Versions.retrofitRx}" }
+    val retrofitKotlinxConverter by lazy { "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofitKotlinxConverter}" }
+    val retrofitGsonConverter by lazy { "com.squareup.retrofit2:converter-gson:${Versions.retrofitGsonConverter}" }
+    val room by lazy { "androidx.room:room-runtime:${Versions.room}" }
+    val roomCompiler by lazy { "androidx.room:room-compiler:${Versions.room}" }
+    val roomKtx by lazy { "androidx.room:room-ktx:${Versions.room}" }
+    val roomRx by lazy { "androidx.room:room-rxjava3:${Versions.room}" }
+    val rxKotlin by lazy { "io.reactivex.rxjava3:rxkotlin:${Versions.rxKotlin}" }
+    val rxAndroid by lazy { "io.reactivex.rxjava3:rxandroid:${Versions.rxAndroid}" }
+    val kotlinxSerialization by lazy { "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerialization}" }
+    val splashScreen by lazy { "androidx.core:core-splashscreen:${Versions.splashScreen}" }
+    val swipeRefreshLayout by lazy { "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}" }
+    val junit by lazy { "junit:junit:${Versions.junit}" }
+    val junitExt by lazy { "androidx.test.ext:junit:${Versions.junitExt}" }
+    val espresso by lazy { "androidx.test.espresso:espresso-core:${Versions.espresso}" }
+    val material by lazy { "com.google.android.material:material:${Versions.material}" }
+    val constraintLayout by lazy { "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}" }
+}

@@ -1,19 +1,18 @@
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-android-extensions")
-    id("kotlin-kapt")
+    id(Plugins.Application.name)
+    id(Plugins.Kotlin.android)
+    id(Plugins.Kotlin.extensions)
+    id(Plugins.Kotlin.kapt)
 }
 
 android {
-    compileSdk = 33
+    compileSdk = Config.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.itunesmvp"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Config.applicationId
+        minSdk = Config.minSdk
+        targetSdk = Config.targetSdk
+        versionCode = Config.versionCode
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -21,7 +20,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -41,69 +43,47 @@ android {
 
 dependencies {
     //  Core
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("androidx.activity:activity-ktx:1.5.1")
-    implementation("androidx.fragment:fragment-ktx:1.5.2")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.2")
-
-    //  DI
-    val koinVersion = "3.2.0"
-    implementation("io.insert-koin:koin-android:$koinVersion")
-
-    //  Glide
-    val glideVersion = "4.13.2"
-    implementation("com.github.bumptech.glide:glide:4.13.2")
-    annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
-
-    // Moxy
-    val moxyVersion = "2.2.2"
-    implementation ("com.github.moxy-community:moxy:$moxyVersion")
-    kapt ("com.github.moxy-community:moxy-compiler:$moxyVersion")
-    implementation ("com.github.moxy-community:moxy-android:$moxyVersion")
-    implementation ("com.github.moxy-community:moxy-androidx:$moxyVersion")
-
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.appCompat)
+    implementation(Dependencies.activityKtx)
+    implementation(Dependencies.fragmentKtx)
     //  Navigation
-    val ciceroneVersion = "7.1"
-    implementation ("com.github.terrakok:cicerone:$ciceroneVersion")
-
+    implementation(Dependencies.navigationFragmentKtx)
+    implementation(Dependencies.navigationUiKtx)
+    implementation(Dependencies.cicerone)
+    //  DI
+    implementation(Dependencies.koin)
+    // Moxy
+    implementation(Dependencies.moxy)
+    kapt(Dependencies.moxyCompiler)
+    implementation(Dependencies.moxyAndroid)
+    implementation(Dependencies.moxyAndroidX)
     //  OkHttp
-    val okhttpVersion = "4.9.3"
-    implementation ("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
-
+    implementation(Dependencies.okHttpInterceptor)
     //  Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0")
-
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.retrofitRx)
+    implementation(Dependencies.retrofitKotlinxConverter)
+    implementation(Dependencies.retrofitGsonConverter)
     //  Room
-    val roomVersion = "2.4.3"
-    implementation ("androidx.room:room-runtime:$roomVersion")
-    kapt ("androidx.room:room-compiler:$roomVersion")
-    implementation ("androidx.room:room-ktx:$roomVersion")
-    implementation ("androidx.room:room-rxjava3:$roomVersion")
-
+    implementation(Dependencies.room)
+    kapt(Dependencies.roomCompiler)
+    implementation(Dependencies.roomKtx)
+    implementation(Dependencies.roomRx)
     //  RX
-    implementation ("io.reactivex.rxjava3:rxkotlin:3.0.1")
-    implementation ("io.reactivex.rxjava3:rxandroid:3.0.0")
-
+    implementation(Dependencies.rxKotlin)
+    implementation(Dependencies.rxAndroid)
     //  Serialization
-    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.0")
-    implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-
-    //  Splash
-    implementation ("androidx.core:core-splashscreen:1.0.0")
-
-    // Swipe Refresh
-    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-
-    //  Tests
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
-
+    implementation(Dependencies.kotlinxSerialization)
     //  UI
-    implementation ("com.google.android.material:material:1.6.1")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(Dependencies.splashScreen)
+    implementation(Dependencies.swipeRefreshLayout)
+    implementation(Dependencies.material)
+    implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.glide)
+    annotationProcessor(Dependencies.glideCompiler)
+    //  Tests
+    testImplementation(Dependencies.junit)
+   androidTestImplementation(Dependencies.junitExt)
+   androidTestImplementation(Dependencies.espresso)
 }

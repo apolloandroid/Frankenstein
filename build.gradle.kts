@@ -7,11 +7,11 @@ buildscript {
 }
 
 plugins {
-    id ("com.android.application") version "7.2.0" apply false
-    id ("com.android.library") version "7.2.0" apply false
-    id ("org.jetbrains.kotlin.android") version "1.6.21" apply false
+    id(Plugins.Application.name) version Plugins.Application.version apply false
+    id(Plugins.AndroidLibrary.name) version Plugins.AndroidLibrary.version apply false
+    id(Plugins.Kotlin.androidJetbrains) version Plugins.Kotlin.version apply false
 }
 
 tasks.register<Delete>("clean") {
-    delete (rootProject.buildDir)
+    delete(rootProject.buildDir)
 }
