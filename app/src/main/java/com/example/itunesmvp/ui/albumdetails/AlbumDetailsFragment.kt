@@ -1,21 +1,17 @@
 package com.example.itunesmvp.ui.albumdetails
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.itunesmvp.databinding.FragmentAlbumDetailsBinding
 import com.example.itunesmvp.domain.Album
-import com.example.itunesmvp.domain.Track
-import com.example.itunesmvp.ui.MainActivity
 import moxy.MvpAppCompatFragment
 import moxy.MvpView
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import moxy.viewstate.strategy.AddToEndSingleStrategy
-import moxy.viewstate.strategy.OneExecutionStateStrategy
 import moxy.viewstate.strategy.SkipStrategy
 import moxy.viewstate.strategy.StateStrategyType
 import org.koin.android.ext.android.inject
