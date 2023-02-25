@@ -84,6 +84,6 @@ dependencies {
     annotationProcessor(Dependencies.glideCompiler)
     //  Tests
     testImplementation(Dependencies.junit)
-   androidTestImplementation(Dependencies.junitExt)
-   androidTestImplementation(Dependencies.espresso)
+    androidTestImplementation(Dependencies.junitExt)
+    androidTestImplementation(Dependencies.espresso)
 }
