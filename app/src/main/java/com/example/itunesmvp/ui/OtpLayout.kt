@@ -73,8 +73,8 @@ class OtpLayout : LinearLayout {
 
     private fun setOnTextChangedListeners() = editTexts.forEachIndexed { index, editText ->
         editText.doAfterTextChanged { text ->
+            inputLayouts.forEach { it.isErrorEnabled = false }
             if (text.toString().isNotEmpty()) {
-                inputLayouts.forEach { it.isErrorEnabled = false }
                 if (index != editTexts.count() - 1) {
                     val nextEditText = editTexts[index + 1]
                     nextEditText.requestFocus()
