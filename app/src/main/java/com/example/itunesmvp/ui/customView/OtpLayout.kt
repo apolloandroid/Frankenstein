@@ -1,4 +1,4 @@
-package com.example.itunesmvp.ui
+package com.example.itunesmvp.ui.customView
 
 import android.content.Context
 import android.content.res.ColorStateList

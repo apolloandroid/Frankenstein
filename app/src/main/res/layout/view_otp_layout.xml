@@ -19,7 +19,7 @@
             app:boxStrokeWidth="1dp"
             app:errorIconDrawable="@null">
 
-            <com.example.itunesmvp.ui.OtpInputLayout
+            <com.example.itunesmvp.ui.customView.OtpInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="false"
@@ -41,7 +41,7 @@
             app:errorEnabled="true"
             app:errorIconDrawable="@null">
 
-            <com.example.itunesmvp.ui.OtpInputLayout
+            <com.example.itunesmvp.ui.customView.OtpInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="false"
@@ -63,7 +63,7 @@
             app:errorEnabled="true"
             app:errorIconDrawable="@null">
 
-            <com.example.itunesmvp.ui.OtpInputLayout
+            <com.example.itunesmvp.ui.customView.OtpInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="false"
@@ -85,7 +85,7 @@
             app:errorEnabled="true"
             app:errorIconDrawable="@null">
 
-            <com.example.itunesmvp.ui.OtpInputLayout
+            <com.example.itunesmvp.ui.customView.OtpInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="false"
