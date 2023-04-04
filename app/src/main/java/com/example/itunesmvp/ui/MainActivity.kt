@@ -18,63 +18,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val currentFragment: RootFragment<*>?
-        get() = supportFragmentManager.fragments.firstOrNull { it.isVisible } as? RootFragment<*>
-
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setUpBottomNavigation()
-    }
 
-    override fun onBackPressed() {
-        val currentFragmentBackPressedResult = (currentFragment as? BackPressable)?.onBackPressed()
-        when {
-            currentFragmentBackPressedResult == true -> return
-            currentFragment?.tag == NavigationTabTags.TAG_SEARCH_ALBUM -> super.onBackPressed()
-            else -> {
-                selectTab(NavigationTabTags.TAG_SEARCH_ALBUM)
-                binding.navigationView.selectedItemId = R.id.menuItemSearchAlbum
-            }
+        with(binding) {
+            buttonCheckOtp.setOnClickListener { layoutOtp.setError() }
         }
-    }
-
-    private fun setUpBottomNavigation() = binding.navigationView.apply {
-        setOnItemSelectedListener { item ->
-            getTabTag(item.itemId)?.let { tag -> selectTab(tag) }
-            true
-        }
-
-        setOnItemReselectedListener { currentFragment?.setFirstScreen() }
-        selectedItemId = R.id.menuItemSearchAlbum
-        this@MainActivity.selectTab(NavigationTabTags.TAG_SEARCH_ALBUM)
-    }
-
-    private fun selectTab(tabTag: String) {
-        val oldFragment = currentFragment
-        val newFragment = supportFragmentManager.findFragmentByTag(tabTag)
-        if (oldFragment != null && newFragment != null && oldFragment === newFragment) return
-        else supportFragmentManager.beginTransaction().apply {
-            if (newFragment == null) {
-                val rootFragment = createRootFragment(tabTag)
-                add(binding.layoutFragmentContainer.id, rootFragment, tabTag)
-            }
-            oldFragment?.let { hide(it) }
-            newFragment?.let { show(it) }
-        }.commitNow()
-    }
-
-    private fun getTabTag(tabId: Int): String? = when (tabId) {
-        R.id.menuItemSearchAlbum -> NavigationTabTags.TAG_SEARCH_ALBUM
-        R.id.menuItemFavoriteAlbums -> NavigationTabTags.TAG_FAVORITE_ALBUMS
-        R.id.menuItemSettings -> NavigationTabTags.TAG_SETTINGS
-        else -> null
-    }
-
-    private fun createRootFragment(tabTag: String): Fragment {
-        val rootScreen = Screens.RootScreen(tabTag)
-        return rootScreen.createFragment(supportFragmentManager.fragmentFactory)
     }
 }
